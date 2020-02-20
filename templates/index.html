@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>MBTI Predictor</title>
+
+<!--    This is for the text counter-->
+    <script src="http://code.jquery.com/jquery-1.5.js"></script>
+    <script>
+      function countChar(val) {
+        var len = val.value.length;
+        if (len >= 500) {
+          val.value = val.value.substring(0, 500);
+        } else {
+          $('#charNum').text(500 - len);
+        }
+      };
+    </script>
+
+</head>
+
+
+<style>
+.container {position: absolute;top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%);}
+h1 {text-align:center; font-family: "Verdana", sans-serif; font-size: 55px;}
+body {text-align:center; background-image: url("https://cdn.pixabay.com/photo/2017/07/01/19/48/background-2462434_1280.jpg"); background-color: #cccccc; background-repeat: no-repeat; background-size: cover;}
+label {text-align:center; font-family: "Verdana", sans-serif; font-size: 18px; font-weight:bold; }
+p {text-align:center; font-family: "Verdana", sans-serif; font-size: 10px; }
+button {text-align:center; font-family: "Verdana", sans-serif; font-size: 14px; border-radius: 6px; color: hsl(120, 100%, 25%); width:200px; height:50px; font-weight:bold; }
+</style>
+
+
+<div class="container">
+    <body>
+    <h1>MBTI Predictor</h1>
+        <div>
+            <form method="POST" action="/result">
+                <label for="name">Name</label>
+                <br>
+                <input type="text" id="name" name="name" maxlength="1000">
+                <br>
+                <br>
+                <label for="input_texts">Your Texts</label>
+                <br>
+                <p>* Must have at least 500 characters *</p>
+                <textarea type="text" id="input_texts" name="input_texts" minlength="500" rows="15" cols="90" onkeyup="countChar(this)"></textarea>
+<!--                This is for the text counter-->
+                <div id="charNum"></div>
+                <br>
+                <br>
+                <button type="submit">Let's Guess Your MBTI!</button>
+            </form>
+        </div>
+
+    </body>
+</div>
+</html>
